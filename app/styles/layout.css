@@ -1,0 +1,87 @@
+/* ── Layout: section shell, glass panel, ambient orbs, responsive ── */
+
+.section-shell {
+  position: relative;
+  width: min(1180px, calc(100% - 1.5rem));
+  margin-inline: auto;
+}
+
+.glass-panel {
+  position: relative;
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(20, 26, 28, 0.88), rgba(11, 15, 16, 0.82));
+  box-shadow: var(--glow);
+  backdrop-filter: blur(22px);
+  border-radius: 28px;
+}
+
+/* shared transparent-border reset for interactive elements */
+.badge-pill,
+.tag-chip,
+.icon-link,
+.button-primary,
+.button-secondary,
+.field-input,
+.mini-panel,
+.project-card {
+  border: 1px solid transparent;
+}
+
+.ambient {
+  position: absolute;
+  inset: auto;
+  pointer-events: none;
+  border-radius: 999px;
+  filter: blur(80px);
+  opacity: 0.55;
+}
+
+.ambient-cyan {
+  top: 7rem;
+  left: -5rem;
+  width: 18rem;
+  height: 18rem;
+  background: rgba(0, 200, 150, 0.18);
+}
+
+.ambient-violet {
+  top: 18rem;
+  right: -3rem;
+  width: 15rem;
+  height: 15rem;
+  background: rgba(127, 255, 212, 0.12);
+}
+
+@media (max-width: 767px) {
+  .section-shell {
+    width: min(100% - 1rem, 1180px);
+  }
+
+  .glass-panel,
+  .project-card {
+    border-radius: 20px;
+  }
+
+  .floating-chip {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.75rem;
+  }
+
+  /* Tighten section vertical spacing on mobile */
+  .section-title {
+    font-size: clamp(1.8rem, 7vw, 2.6rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .glass-panel,
+  .project-card {
+    border-radius: 16px;
+  }
+}

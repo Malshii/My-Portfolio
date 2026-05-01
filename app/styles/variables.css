@@ -1,0 +1,52 @@
+/* ── Design tokens & global reset ── */
+
+:root {
+  --background: #0b0f10;
+  --foreground: #f5f7fa;
+  --surface: rgba(20, 26, 28, 0.74);
+  --surface-strong: rgba(20, 26, 28, 0.9);
+  --surface-soft: rgba(127, 255, 212, 0.08);
+  --border: rgba(127, 255, 212, 0.14);
+  --muted: rgba(245, 247, 250, 0.68);
+  --accent: #00c896;
+  --highlight: #7fffd4;
+  --glow: 0 24px 80px rgba(0, 0, 0, 0.42);
+}
+
+/* Font family references — updated to Montserrat / Open Sans / Roboto */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background:
+    radial-gradient(circle at top left, rgba(0, 200, 150, 0.14), transparent 28%),
+    radial-gradient(circle at top right, rgba(127, 255, 212, 0.09), transparent 24%),
+    linear-gradient(180deg, #141a1c 0%, #0b0f10 45%, #0b0f10 100%);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), var(--font-roboto), sans-serif;
+  min-height: 100vh;
+  text-rendering: optimizeLegibility;
+}
+
+a,
+button,
+input,
+textarea {
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+::selection {
+  background: rgba(127, 255, 212, 0.24);
+  color: var(--foreground);
+}

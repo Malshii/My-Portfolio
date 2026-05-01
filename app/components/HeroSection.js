@@ -1,24 +1,21 @@
 export default function HeroSection() {
   return (
-    <section className="section-shell pb-12 pt-10 md:pb-18 md:pt-16">
-      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-6">
+    <section className="section-shell pb-12 pt-8 md:pb-18 md:pt-14">
+      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-6">
 
         {/* ── Left: content ── */}
-        <div className="space-y-8">
-          {/* <span className="badge-pill">
-            ⚙️&nbsp; Mechanical Engineer&nbsp;|&nbsp;Machine Design Specialist
-          </span> */}
+        <div className="space-y-7 text-center lg:text-left">
 
-          <div className="space-y-5">
+          <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.32em] text-[#7FFFD4]/75">
               Hello, I&apos;m
             </p>
-            <h1 className="font-display text-5xl font-semibold leading-[1.06] tracking-[-0.04em] text-white md:text-6xl xl:text-[4.4rem]">
+            <h1 className="font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl xl:text-[4.4rem]">
               Lasitha&nbsp;
               <br className="hidden sm:block" />
               <span className="hero-gradient-text">Dhananjaya</span>
             </h1>
-            <p className="max-w-lg text-base leading-8 text-slate-300 md:text-lg">
+            <p className="mx-auto max-w-lg text-base leading-8 text-slate-300 md:text-lg lg:mx-0">
               Dynamic and results-oriented Mechanical Engineer with 2+ years of
               industrial experience in machine design, project handling, and
               process optimization. Seeking to contribute technical excellence
@@ -26,7 +23,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 lg:justify-start">
             <a className="button-primary" href="#contact">
               Hire Me
             </a>
@@ -57,10 +54,10 @@ export default function HeroSection() {
             draggable="false"
           />
 
-          {/* floating tech chips */}
-          <div className="floating-chip hero-chip-tl">Mechanical Design Engineer</div>
-          <div className="floating-chip hero-chip-tr">2+ Years Experience</div>
-          <div className="floating-chip hero-chip-br">Graduated in University of Moratuwa</div>
+          {/* floating tech chips — hidden on small phones */}
+          <div className="floating-chip hero-chip-tl hidden sm:block">Mechanical Design Engineer</div>
+          <div className="floating-chip hero-chip-tr hidden sm:block">2+ Years Experience</div>
+          <div className="floating-chip hero-chip-br hidden sm:block">Graduated in University of Moratuwa</div>
         </div>
 
       </div>

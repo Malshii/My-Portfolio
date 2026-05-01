@@ -1,0 +1,120 @@
+/* ── Hero section ── */
+
+.hero-orb {
+  position: absolute;
+  inset: auto 2rem -2rem auto;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(0, 200, 150, 0.34), transparent 68%);
+  filter: blur(10px);
+}
+
+.hero-gradient-text {
+  background: linear-gradient(100deg, var(--highlight) 10%, var(--accent) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-person-wrap {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 20rem;
+}
+
+@media (min-width: 640px) {
+  .hero-person-wrap {
+    min-height: 24rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-person-wrap {
+    min-height: 28rem;
+  }
+}
+
+.hero-person-blob {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 90%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 80%,
+    rgba(0, 200, 150, 0.26) 0%,
+    rgba(127, 255, 212, 0.14) 36%,
+    transparent 68%
+  );
+  filter: blur(32px);
+  z-index: 0;
+}
+
+.hero-img {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  max-height: 20rem;
+  object-fit: contain;
+  object-position: center bottom;
+  filter: drop-shadow(0 16px 56px rgba(0, 200, 150, 0.2));
+  mask-image: radial-gradient(ellipse 80% 90% at 50% 30%, black 40%, rgba(0,0,0,0.6) 65%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 90% at 50% 30%, black 40%, rgba(0,0,0,0.6) 65%, transparent 85%);
+  user-select: none;
+}
+
+@media (min-width: 640px) {
+  .hero-img {
+    max-height: 26rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-img {
+    max-height: 32rem;
+  }
+}
+
+/* hero chip positions */
+.hero-chip-tl {
+  position: absolute;
+  top: 14%;
+  left: -0.5rem;
+  z-index: 2;
+}
+
+.hero-chip-tr {
+  position: absolute;
+  top: 8%;
+  right: 0;
+  z-index: 2;
+}
+
+.hero-chip-br {
+  position: absolute;
+  bottom: 12%;
+  right: 0.5rem;
+  z-index: 2;
+}
+
+.hero-globe-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}

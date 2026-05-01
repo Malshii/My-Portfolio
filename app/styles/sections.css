@@ -1,0 +1,165 @@
+/* ── Section-specific components ── */
+
+/* Projects detail page */
+.proj-detail-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(0, 200, 150, 0.85);
+}
+
+.proj-result-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(127, 255, 212, 0.08);
+  background: rgba(0, 200, 150, 0.04);
+}
+
+.proj-result-dot {
+  margin-top: 0.55rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  flex-shrink: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 6px rgba(0, 200, 150, 0.6);
+}
+
+/* Timeline toggle button */
+.tl-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(127, 255, 212, 0.65);
+  padding: 0.3rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(127, 255, 212, 0.14);
+  background: rgba(0, 200, 150, 0.06);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.tl-toggle:hover {
+  color: var(--highlight);
+  border-color: rgba(127, 255, 212, 0.3);
+  background: rgba(0, 200, 150, 0.12);
+}
+
+/* Experience cards */
+.exp-number {
+  font-family: var(--font-montserrat), sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--highlight), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.35;
+}
+
+.exp-divider {
+  width: 100%;
+  height: 1px;
+  margin: 1.25rem 0;
+  background: linear-gradient(to right, rgba(0,200,150,0.25), transparent);
+}
+
+/* Education cards */
+.edu-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 14px;
+  border: 1px solid rgba(127, 255, 212, 0.16);
+  background: rgba(0, 200, 150, 0.08);
+  font-size: 1.3rem;
+}
+
+.edu-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 200, 150, 0.3);
+  background: rgba(0, 200, 150, 0.1);
+  color: var(--highlight);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* About: stat cards */
+.about-stat-card {
+  border-radius: 16px;
+  border: 1px solid rgba(127, 255, 212, 0.1);
+  background: rgba(0, 200, 150, 0.05);
+  padding: 0.9rem 1rem;
+}
+
+/* About: experience timeline */
+.about-timeline-item {
+  position: relative;
+}
+
+.about-timeline-dot {
+  position: absolute;
+  left: 0;
+  top: 0.35rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 200, 150, 0.6);
+  z-index: 1;
+}
+
+.about-timeline-line {
+  position: absolute;
+  left: 0.3rem;
+  top: 0.9rem;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(0, 200, 150, 0.35), rgba(0, 200, 150, 0.05));
+}
+
+/* Skills: badge chips */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  background: rgba(0, 200, 150, 0.07);
+  color: var(--highlight);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 180ms ease, border-color 180ms ease, transform 120ms ease;
+}
+
+.skill-badge:hover {
+  background: rgba(0, 200, 150, 0.14);
+  border-color: rgba(127, 255, 212, 0.36);
+  transform: translateY(-1px);
+}
+
+.skill-icon-wrap {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 10px;
+  border: 1px solid rgba(127, 255, 212, 0.14);
+  background: rgba(0, 200, 150, 0.09);
+  font-size: 1rem;
+  flex-shrink: 0;
+}

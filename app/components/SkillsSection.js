@@ -16,7 +16,7 @@ export default function SkillsSection() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-6 xl:grid-cols-3">
+      <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
         {skillGroups.map((group) => (
           <article key={group.title} className="glass-panel p-6 md:p-7">
             {/* accent bar */}

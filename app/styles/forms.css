@@ -1,0 +1,32 @@
+/* ── Forms: field wrapper, label, input ── */
+
+.field-wrap {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.field-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(245, 247, 250, 0.68);
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 22px;
+  border-color: rgba(127, 255, 212, 0.12);
+  background: rgba(20, 26, 28, 0.92);
+  padding: 1rem 1.1rem;
+  color: var(--foreground);
+  outline: none;
+}
+
+.field-input::placeholder {
+  color: rgba(245, 247, 250, 0.46);
+}
+
+.field-input:focus {
+  border-color: rgba(127, 255, 212, 0.42);
+  box-shadow: 0 0 0 4px rgba(127, 255, 212, 0.08);
+}

@@ -1,0 +1,19 @@
+/* ── Typography ── */
+
+.font-display {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+.section-label {
+  font-size: 0.76rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(127, 255, 212, 0.82);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+  color: white;
+}
