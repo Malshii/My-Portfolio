@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { projects } from "./data/projects";
+import Reveal from "./Reveal";
 
 export default function ProjectsSection() {
   const featured = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
     <section id="projects" className="section-shell py-10 md:py-16">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between" distance={24}>
         <div>
           <p className="section-label">Projects</p>
           <h2 className="section-title mt-4 max-w-2xl">
@@ -16,11 +17,11 @@ export default function ProjectsSection() {
         <a className="button-secondary !px-5 !py-3 text-sm" href="#contact">
           Discuss a project
         </a>
-      </div>
+      </Reveal>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {featured.map((project) => (
-          <article key={project.title} className="project-card">
+        {featured.map((project, index) => (
+          <Reveal key={project.title} as="article" className="project-card" delay={80 + index * 110} distance={24}>
             {(() => {
               const projectImages =
                 Array.isArray(project.images) && project.images.length > 0
@@ -89,12 +90,12 @@ export default function ProjectsSection() {
                 </p>
               )}
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
 
       {/* View all */}
-      <div className="mt-10 flex justify-center">
+      <Reveal className="mt-10 flex justify-center" delay={160} distance={18}>
         <Link
           href="/projects"
           className="button-secondary flex items-center gap-2 !px-7 !py-4 text-sm"
@@ -104,7 +105,7 @@ export default function ProjectsSection() {
             <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </Link>
-      </div>
+      </Reveal>
     </section>
   );
 }

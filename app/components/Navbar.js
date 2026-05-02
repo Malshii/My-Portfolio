@@ -10,11 +10,17 @@ export default function Navbar() {
 
   return (
     <section className="section-shell pt-6 sm:pt-8">
-      <div className="glass-panel px-5 py-4 sm:px-6">
+      <div className="glass-panel nav-enter px-5 py-4 sm:px-6">
         {/* ── Top row ── */}
         <div className="flex items-center justify-between gap-6">
-          <Link href="/" className="font-display text-lg font-bold tracking-[0.18em] text-white">
-            LASITHA
+          <Link href="/" className="nav-brand" aria-label="Go to home">
+            <span className="nav-brand-mark" aria-hidden="true">
+              <span className="nav-brand-initials">
+                <span className="nav-brand-l">L</span>
+                <span className="nav-brand-d">D</span>
+              </span>
+            </span>
+            <span className="nav-brand-name">Lasitha Dananjaya</span>
           </Link>
 
           {/* Desktop nav */}

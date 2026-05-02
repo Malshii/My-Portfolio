@@ -22,7 +22,7 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Lasitha Dhananjaya | Mechanical Engineer",
+  title: "Lasitha Dananjaya | Mechanical Engineer",
   description:
     "Mechanical Engineer specializing in machine design, project handling, and process optimization. Explore my portfolio of engineering projects and experience.",
 };

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { contactLinks } from "./data/contactLinks";
+import Reveal from "./Reveal";
 
 export default function ContactSection() {
   const [status, setStatus] = useState({ type: "idle", message: "" });
@@ -60,7 +61,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="section-shell py-10 pb-16 md:py-16 md:pb-24">
       <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-        <div className="glass-panel p-7 md:p-8">
+        <Reveal className="glass-panel p-7 md:p-8" distance={26}>
           <p className="section-label">Contact</p>
           <h2 className="section-title mt-4 max-w-sm">
             Let&apos;s connect and discuss your next engineering challenge.
@@ -71,7 +72,7 @@ export default function ContactSection() {
           </p>
 
           <div className="mt-8 space-y-3">
-            {contactLinks.map((link) => (
+            {contactLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -83,6 +84,7 @@ export default function ContactSection() {
                 }
                 className="icon-link !w-full !justify-start"
                 aria-label={link.name}
+                style={{ transitionDelay: `${60 + index * 70}ms` }}
               >
                 <span className="shrink-0">{link.icon}</span>
                 <span className="flex flex-col text-left">
@@ -96,10 +98,13 @@ export default function ContactSection() {
               </a>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <form
+        <Reveal
+          as="form"
           className="glass-panel grid gap-5 p-7 md:grid-cols-2 md:p-8"
+          delay={120}
+          distance={26}
           onSubmit={handleSubmit}
         >
           <label className="field-wrap">
@@ -157,7 +162,7 @@ export default function ContactSection() {
               {isSending ? "Sending..." : "Start the Conversation"}
             </button>
           </div>
-        </form>
+        </Reveal>
       </div>
     </section>
   );

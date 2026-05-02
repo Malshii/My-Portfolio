@@ -13,9 +13,10 @@ export default function ProjectImageGallery({ images, title }) {
       <div className="flex items-center justify-center overflow-hidden rounded-lg bg-[#0d1214]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
+          key={images[index]}
           src={images[index]}
           alt={`${title} image ${index + 1}`}
-          className="w-full h-auto object-contain"
+          className="gallery-image h-auto w-full object-contain"
           style={{ maxHeight: "440px" }}
         />
       </div>

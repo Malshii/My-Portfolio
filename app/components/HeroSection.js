@@ -1,11 +1,11 @@
+import Reveal from "./Reveal";
+
 export default function HeroSection() {
   return (
     <section className="section-shell pb-12 pt-8 md:pb-18 md:pt-14">
       <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-6">
-
         {/* ── Left: content ── */}
-        <div className="space-y-7 text-center lg:text-left">
-
+        <Reveal className="space-y-7 text-center lg:text-left" distance={30}>
           <div className="space-y-4">
             <p className="text-sm uppercase tracking-[0.32em] text-[#7FFFD4]/75">
               Hello, I&apos;m
@@ -13,10 +13,10 @@ export default function HeroSection() {
             <h1 className="font-display text-4xl font-semibold leading-[1.06] tracking-[-0.04em] text-white sm:text-5xl md:text-6xl xl:text-[4.4rem]">
               Lasitha&nbsp;
               <br className="hidden sm:block" />
-              <span className="hero-gradient-text">Dhananjaya</span>
+              <span className="hero-gradient-text">Dananjaya</span>
             </h1>
             <p className="mx-auto max-w-lg text-base leading-8 text-slate-300 md:text-lg lg:mx-0">
-              Dynamic and results-oriented Mechanical Engineer with 2+ years of
+              Dynamic and results-oriented Mechanical Engineer with 3+ years of
               industrial experience in machine design, project handling, and
               process optimization. Seeking to contribute technical excellence
               and innovation to forward-thinking engineering teams.
@@ -27,21 +27,42 @@ export default function HeroSection() {
             <a className="button-primary" href="#contact">
               Hire Me
             </a>
-            <a className="button-secondary flex items-center gap-2.5" href="#projects">
+            <a
+              className="button-secondary flex items-center gap-2.5"
+              href="#projects"
+            >
               <span className="hero-globe-icon" aria-hidden="true">
                 <svg viewBox="0 0 20 20" className="h-4 w-4" fill="none">
-                  <circle cx="10" cy="10" r="8.5" stroke="currentColor" strokeWidth="1.4" />
-                  <ellipse cx="10" cy="10" rx="3.8" ry="8.5" stroke="currentColor" strokeWidth="1.4" />
-                  <path d="M1.5 10h17M3 5.5h14M3 14.5h14" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                  />
+                  <ellipse
+                    cx="10"
+                    cy="10"
+                    rx="3.8"
+                    ry="8.5"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                  />
+                  <path
+                    d="M1.5 10h17M3 5.5h14M3 14.5h14"
+                    stroke="currentColor"
+                    strokeWidth="1.4"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </span>
               Latest Work
             </a>
           </div>
-        </div>
+        </Reveal>
 
         {/* ── Right: person image ── */}
-        <div className="hero-person-wrap">
+        <Reveal className="hero-person-wrap" delay={120} distance={26}>
           {/* decorative glow blob */}
           <div className="hero-person-blob" />
 
@@ -49,17 +70,28 @@ export default function HeroSection() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/profile.png"
-            alt="Lasitha Dhananjaya — Mechanical Engineer"
+            alt="Lasitha Dananjaya — Mechanical & Mechatronics Engineer"
             className="hero-img"
             draggable="false"
           />
 
           {/* floating tech chips — hidden on small phones */}
-          <div className="floating-chip hero-chip-tl hidden sm:block">Mechanical Design Engineer</div>
-          <div className="floating-chip hero-chip-tr hidden sm:block">2+ Years Experience</div>
-          <div className="floating-chip hero-chip-br hidden sm:block">Graduated in University of Moratuwa</div>
-        </div>
-
+          <div className="floating-chip hero-chip-tl">
+            Mechanical & Mechatronics Engineer
+          </div>
+          <div className="floating-chip hero-chip-tr">3+ Years Experience</div>
+          <div className="floating-chip hero-chip-tc">15+ Projects</div>
+          <div className="floating-chip hero-chip-br">
+            Graduated in University of Moratuwa, Sri Lanka
+          </div>
+          <div className="floating-chip hero-chip-cl hidden sm:block">
+            Project Management
+          </div>
+          <div className="floating-chip hero-chip-cr hidden sm:block">R&D</div>
+          <div className="floating-chip hero-chip-bl hidden sm:block">
+            3D Modeling Designer
+          </div>
+        </Reveal>
       </div>
     </section>
   );

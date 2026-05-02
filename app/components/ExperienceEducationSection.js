@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import { PiWrench, PiGear, PiStudent, PiBuildings, PiBookOpenText, PiBrain, PiCaretDown } from "react-icons/pi";
+import Reveal from "./Reveal";
 
 const experience = [
   {
-    role: "Mechanical Engineer | Engineering Design",
+    role: "Mechanical Design Engineer | Engineering Design",
     company: "EODEVIX USA",
-    period: "Mar 2025 – Present",
+    period: "Mar 2025 – Sep 2025",
     tag: null,
-    Icon: PiWrench,
+    Icon: PiGear,
     points: [
       "Engineering Designs and Drawings, Machine Fabrication, Production Line Designing.",
     ],
@@ -24,17 +25,19 @@ const experience = [
       "Engineering Designs, Drawings, Machine Fabrications, Machine Installations, Machine Commissioning, Machine Maintenance.",
       "Project Proposal Creation, Production Line Designing, Working With SAP Systems, and Creation of ISO Documents.",
     ],
+    site: "https://www.haycarb.com/"
   },
   {
-    role: "Mechatronic Engineering Trainee",
+    role: "Mechatronic Engineer",
     company: "ROCELL BATHWARE LTD",
     period: "Oct 2020 – May 2021",
     tag: null,
-    Icon: PiStudent,
+    Icon: PiGear,
     points: [
       "Basic Engineering Concepts, Engineering Process (Casting / Water Purification / Glaze Preparation / Firing Process).",
       "Reverse Engineering, Machine Modification, Preventive Maintenance Documentation, and Robot Controlling.",
     ],
+    site: "https://rocell.com/en"
   },
 ];
 
@@ -55,14 +58,14 @@ const education = [
     Icon: PiBuildings,
     extra: "Specialized in Mechatronics — combining mechanical, electrical, and software engineering.",
   },
-  {
-    degree: "G.C.E Advanced Level Examination",
-    institution: "Vidyartha College Kandy",
-    period: "Oct 2014 – Aug 2016",
-    badge: "District Rank: 50",
-    Icon: PiBookOpenText,
-    extra: null,
-  },
+  // {
+  //   degree: "G.C.E Advanced Level Examination",
+  //   institution: "Vidyartha College Kandy",
+  //   period: "Oct 2014 – Aug 2016",
+  //   badge: "District Rank: 50",
+  //   Icon: PiBookOpenText,
+  //   extra: null,
+  // },
 ];
 
 function ExpCard({ job, defaultExpanded }) {
@@ -76,13 +79,27 @@ function ExpCard({ job, defaultExpanded }) {
             <job.Icon size={20} color="#00C896" />
           </div>
           <div>
-            <p className="text-[0.7rem] uppercase tracking-[0.24em] text-[#7FFFD4]/70">{job.period}</p>
-            <p className="mt-0.5 font-display text-base font-semibold text-white">{job.role}</p>
-            <p className="text-sm text-[#00C896]">{job.company}</p>
+            <p className="text-[0.7rem] uppercase tracking-[0.24em] text-[#7FFFD4]/70">
+              {job.period}
+            </p>
+            <p className="mt-0.5 font-display text-base font-semibold text-white">
+              {job.role}
+            </p>
+
+            <a
+              href={job.site}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-slate-400 hover:text-[#7FFFD4] transition"
+            >
+              {job.company}
+            </a>
           </div>
         </div>
         <div className="flex shrink-0 flex-col items-end gap-2">
-          {job.tag && <span className="skill-badge !text-[0.68rem]">{job.tag}</span>}
+          {job.tag && (
+            <span className="skill-badge !text-[0.68rem]">{job.tag}</span>
+          )}
           <button
             onClick={() => setOpen((v) => !v)}
             aria-expanded={open}
@@ -90,7 +107,10 @@ function ExpCard({ job, defaultExpanded }) {
           >
             <PiCaretDown
               size={14}
-              style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 220ms ease" }}
+              style={{
+                transform: open ? "rotate(180deg)" : "rotate(0deg)",
+                transition: "transform 220ms ease",
+              }}
             />
             <span>{open ? "Less" : "More"}</span>
           </button>
@@ -102,7 +122,10 @@ function ExpCard({ job, defaultExpanded }) {
         <div className="mt-4 border-t border-[#00C896]/15 pt-4">
           <ul className="space-y-2">
             {job.points.map((pt) => (
-              <li key={pt} className="flex gap-2.5 text-sm leading-6 text-slate-400">
+              <li
+                key={pt}
+                className="flex gap-2.5 text-sm leading-6 text-slate-400"
+              >
                 <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C896]/60" />
                 {pt}
               </li>
@@ -164,39 +187,43 @@ export default function ExperienceEducationSection() {
   return (
     <section id="experience" className="section-shell py-10 md:py-16">
       {/* Section header */}
-      <div className="flex flex-col gap-2">
+      <Reveal className="flex flex-col gap-2" distance={24}>
         <p className="section-label">Journey</p>
         <h2 className="section-title max-w-2xl">
           Experience &amp; Education
         </h2>
-      </div>
+      </Reveal>
 
       {/* Two-column layout */}
       <div className="mt-10 grid gap-8 lg:grid-cols-2">
 
         {/* ── Experience column ── */}
-        <div>
+        <Reveal as="div" delay={70} distance={24}>
           <p className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#7FFFD4]/80">
             <PiWrench size={14} /> Work Experience
           </p>
           <div className="space-y-4">
             {experience.map((job, i) => (
-              <ExpCard key={job.company} job={job} defaultExpanded={i === 0} />
+              <Reveal key={job.company} delay={120 + i * 90} distance={18}>
+                <ExpCard job={job} defaultExpanded={i === 0} />
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
 
         {/* ── Education column ── */}
-        <div>
+        <Reveal as="div" delay={130} distance={24}>
           <p className="mb-4 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-[#7FFFD4]/80">
             <PiBrain size={14} /> Education
           </p>
           <div className="space-y-4">
             {education.map((edu, i) => (
-              <EduCard key={edu.degree} edu={edu} defaultExpanded={i === 0} />
+              <Reveal key={edu.degree} delay={160 + i * 90} distance={18}>
+                <EduCard edu={edu} defaultExpanded={i === 0} />
+              </Reveal>
             ))}
           </div>
-        </div>
+        </Reveal>
 
       </div>
     </section>

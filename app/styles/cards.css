@@ -44,6 +44,8 @@
   color: var(--highlight);
   font-size: 0.82rem;
   box-shadow: 0 10px 24px rgba(3, 9, 20, 0.35);
+  animation: chipFloat 7s ease-in-out infinite;
+  transition: transform 220ms ease, border-color 220ms ease;
 }
 
 .mini-panel {
@@ -51,6 +53,10 @@
   border-color: rgba(127, 255, 212, 0.1);
   background: linear-gradient(180deg, rgba(20, 26, 28, 0.82), rgba(11, 15, 16, 0.9));
   padding: 1.15rem;
+  transition:
+    transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 260ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease;
 }
 
 .project-card {
@@ -59,6 +65,10 @@
   border-color: rgba(127, 255, 212, 0.12);
   background: linear-gradient(180deg, rgba(20, 26, 28, 0.82), rgba(11, 15, 16, 0.94));
   box-shadow: var(--glow);
+  transition:
+    transform 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 280ms cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 220ms ease;
 }
 
 .project-thumb {
@@ -66,6 +76,14 @@
   min-height: 16rem;
   overflow: hidden;
   border-bottom: 1px solid rgba(127, 255, 212, 0.1);
+}
+
+.project-thumb img {
+  transition: transform 620ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card:hover .project-thumb img {
+  transform: scale(1.04);
 }
 
 .project-grid {
@@ -86,4 +104,46 @@
   background: rgba(20, 26, 28, 0.72);
   backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-chip-tr {
+  animation-delay: 0.5s;
+}
+
+.hero-chip-br {
+  animation-delay: 1.1s;
+}
+
+.hero-chip-bl {
+  animation-delay: 0.8s;
+}
+
+.hero-chip-cl {
+  animation-delay: 1.4s;
+}
+
+.hero-chip-cr {
+  animation-delay: 0.2s;
+}
+
+@keyframes chipFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-chip {
+    animation: none !important;
+  }
+
+  .project-thumb img,
+  .project-card:hover .project-thumb img {
+    transform: none !important;
+  }
 }

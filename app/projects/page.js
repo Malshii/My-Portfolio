@@ -2,11 +2,12 @@ import Link from "next/link";
 import Navbar from "../components/Navbar";
 import { projects } from "../components/data/projects";
 import ProjectImageGallery from "../components/ProjectImageGallery";
+import Reveal from "../components/Reveal";
 
 export const metadata = {
-  title: "Projects | Lasitha Dhananjaya",
+  title: "Projects | Lasitha Dananjaya",
   description:
-    "Engineering projects by Lasitha Dhananjaya — machine design, process optimization, and industrial automation.",
+    "Engineering projects by Lasitha Dananjaya — machine design, process optimization, and industrial automation.",
 };
 
 export default function ProjectsPage() {
@@ -18,7 +19,7 @@ export default function ProjectsPage() {
 
       <section className="section-shell py-10 md:py-16">
         {/* Header */}
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between" distance={24}>
           <div>
             <Link
               href="/#projects"
@@ -44,7 +45,7 @@ export default function ProjectsPage() {
             End-to-end engineering projects spanning machine design, energy
             optimization, and process improvement.
           </p>
-        </div>
+        </Reveal>
 
         {/* Project cards — full detail */}
         <div className="mt-10 grid gap-8 xl:grid-cols-2">
@@ -60,9 +61,12 @@ export default function ProjectsPage() {
             const hasImages = projectImages.length > 0;
 
             return (
-              <article
+              <Reveal
                 key={project.title}
+                as="article"
                 className="glass-panel overflow-hidden"
+                delay={70 + i * 70}
+                distance={20}
               >
                 {/* project number header */}
                 <div
@@ -188,17 +192,17 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
-              </article>
+              </Reveal>
             );
           })}
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-12 flex justify-center">
+        <Reveal className="mt-12 flex justify-center" delay={220} distance={18}>
           <a href="/#contact" className="button-primary">
             Discuss a Project
           </a>
-        </div>
+        </Reveal>
       </section>
     </main>
   );

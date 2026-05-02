@@ -1,9 +1,10 @@
 import { skillGroups } from "./data/skills";
+import Reveal from "./Reveal";
 
 export default function SkillsSection() {
   return (
     <section id="skills" className="section-shell py-10 md:py-16">
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <Reveal className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between" distance={24}>
         <div>
           <p className="section-label">Skills</p>
           <h2 className="section-title mt-4 max-w-2xl">
@@ -14,11 +15,11 @@ export default function SkillsSection() {
           From CAD modelling and FEA simulation to embedded programming and
           machine commissioning — end-to-end engineering capability.
         </p>
-      </div>
+      </Reveal>
 
       <div className="mt-8 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-        {skillGroups.map((group) => (
-          <article key={group.title} className="glass-panel p-6 md:p-7">
+        {skillGroups.map((group, index) => (
+          <Reveal key={group.title} as="article" className="glass-panel p-6 md:p-7" delay={80 + index * 90} distance={20}>
             {/* accent bar */}
             <div className={`h-1 w-full rounded-full bg-gradient-to-r ${group.accent}`} />
 
@@ -38,7 +39,7 @@ export default function SkillsSection() {
                 </span>
               ))}
             </div>
-          </article>
+          </Reveal>
         ))}
       </div>
     </section>
