@@ -33,7 +33,7 @@ export default function ProjectsSection() {
               const hasImages = projectImages.length > 0;
 
               return (
-                <div className={`project-thumb bg-gradient-to-br ${project.glow}`}>
+                <div className="project-thumb bg-gradient-to-br from-[#7FFFD4]/28 via-[#00C896]/20 to-transparent">
                   {hasImages ? (
                     <>
                       {/* eslint-disable-next-line @next/next/no-img-element */}

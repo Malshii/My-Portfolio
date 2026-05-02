@@ -84,7 +84,7 @@ export default function ProjectsPage() {
                   </div>
                 ) : (
                   <div
-                    className={`project-thumb bg-gradient-to-br ${project.glow}`}
+                    className="project-thumb bg-gradient-to-br from-[#7FFFD4]/28 via-[#00C896]/20 to-transparent"
                   >
                     <div className="project-grid" />
                     <div className="project-window">
