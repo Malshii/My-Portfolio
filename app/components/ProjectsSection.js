@@ -2,7 +2,7 @@ import Link from "next/link";
 import { projects } from "./data/projects";
 
 export default function ProjectsSection() {
-  const featured = projects.filter((p) => p.featured);
+  const featured = projects.filter((p) => p.featured).slice(0, 3);
 
   return (
     <section id="projects" className="section-shell py-10 md:py-16">
@@ -21,35 +21,52 @@ export default function ProjectsSection() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((project) => (
           <article key={project.title} className="project-card">
-            <div className={`project-thumb bg-gradient-to-br ${project.glow}`}>
-              {project.image ? (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="h-full w-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F10]/35 via-transparent to-[#0B0F10]/10" />
-                </>
-              ) : (
-                <>
-                  <div className="project-grid" />
-                  <div className="project-window">
-                    <div className="flex gap-2">
-                      <span className="h-2.5 w-2.5 rounded-full bg-rose-300/80" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
-                      <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/80" />
-                    </div>
-                    <div className="mt-5 grid gap-3">
-                      <div className="h-3 w-2/3 rounded-full bg-white/22" />
-                      <div className="h-3 w-full rounded-full bg-white/12" />
-                      <div className="h-16 rounded-2xl bg-white/8" />
-                    </div>
-                  </div>
-                </>
-              )}
-            </div>
+            {(() => {
+              const projectImages =
+                Array.isArray(project.images) && project.images.length > 0
+                  ? project.images
+                  : project.image
+                    ? [project.image]
+                    : [];
+              const hasImages = projectImages.length > 0;
+
+              return (
+                <div className={`project-thumb bg-gradient-to-br ${project.glow}`}>
+                  {hasImages ? (
+                    <>
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={projectImages[0]}
+                        alt={project.title}
+                        className="h-full w-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F10]/35 via-transparent to-[#0B0F10]/10" />
+                      {projectImages.length > 1 && (
+                        <span className="absolute right-3 top-3 rounded-full border border-[#7FFFD4]/25 bg-[#0B0F10]/65 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-[#7FFFD4]/80">
+                          +{projectImages.length - 1} more
+                        </span>
+                      )}
+                    </>
+                  ) : (
+                    <>
+                      <div className="project-grid" />
+                      <div className="project-window">
+                        <div className="flex gap-2">
+                          <span className="h-2.5 w-2.5 rounded-full bg-rose-300/80" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-amber-300/80" />
+                          <span className="h-2.5 w-2.5 rounded-full bg-emerald-300/80" />
+                        </div>
+                        <div className="mt-5 grid gap-3">
+                          <div className="h-3 w-2/3 rounded-full bg-white/22" />
+                          <div className="h-3 w-full rounded-full bg-white/12" />
+                          <div className="h-16 rounded-2xl bg-white/8" />
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              );
+            })()}
 
             <div className="p-6 md:p-7">
               <h3 className="font-display text-xl text-white">{project.title}</h3>
