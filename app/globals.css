@@ -8,3 +8,7 @@
 @import "./styles/hero.css";
 @import "./styles/cards.css";
 @import "./styles/sections.css";
+
+html {
+	scroll-behavior: smooth;
+}

@@ -1,5 +1,6 @@
 import { Montserrat, Open_Sans, Roboto } from "next/font/google";
 import "./globals.css";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -32,7 +33,10 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${montserrat.variable} ${openSans.variable} ${roboto.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <ScrollToTopButton />
+      </body>
     </html>
   );
 }
