@@ -52,9 +52,11 @@ export default function ProjectsPage() {
             const projectImages =
               Array.isArray(project.images) && project.images.length > 0
                 ? project.images
-                : project.image
-                  ? [project.image]
-                  : [];
+                : Array.isArray(project.image) && project.image.length > 0
+                  ? project.image
+                  : typeof project.image === "string" && project.image
+                    ? [project.image]
+                    : [];
             const hasImages = projectImages.length > 0;
 
             return (
