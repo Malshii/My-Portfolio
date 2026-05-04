@@ -8,6 +8,7 @@ export default function Reveal({
   delay = 0,
   distance = 24,
   children,
+  ...rest
 }) {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
@@ -48,6 +49,7 @@ export default function Reveal({
         "--reveal-delay": `${delay}ms`,
         "--reveal-distance": `${distance}px`,
       }}
+      {...rest}
     >
       {children}
     </Tag>

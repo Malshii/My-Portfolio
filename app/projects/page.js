@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Navbar from "../components/Navbar";
 import { projects } from "../components/data/projects";
+import { getProjectAnchor } from "../components/data/projectUtils";
 import ProjectImageGallery from "../components/ProjectImageGallery";
 import Reveal from "../components/Reveal";
 
@@ -64,7 +65,8 @@ export default function ProjectsPage() {
               <Reveal
                 key={project.title}
                 as="article"
-                className="glass-panel overflow-hidden"
+                id={getProjectAnchor(project.title)}
+                className="project-detail-card glass-panel overflow-hidden scroll-mt-28"
                 delay={70 + i * 70}
                 distance={20}
               >
@@ -73,7 +75,7 @@ export default function ProjectsPage() {
                   className={`relative flex items-center gap-3 overflow-hidden bg-gradient-to-br ${project.glow} px-6 py-3`}
                 >
                   <span className="font-display text-xs uppercase tracking-[0.3em] text-[#7FFFD4]/70">
-                    Project 0{i + 1}
+                    Project {i + 1}
                   </span>
                   <div className="h-px flex-1 bg-gradient-to-r from-[#00C896]/30 to-transparent" />
                 </div>

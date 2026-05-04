@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { projects } from "./data/projects";
+import { getProjectAnchor } from "./data/projectUtils";
 import Reveal from "./Reveal";
 
 export default function ProjectsSection() {
@@ -22,7 +23,12 @@ export default function ProjectsSection() {
       <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {featured.map((project, index) => (
           <Reveal key={project.title} as="article" className="project-card" delay={80 + index * 110} distance={24}>
-            {(() => {
+            <Link
+              href={`/projects#${getProjectAnchor(project.title)}`}
+              className="group block h-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7FFFD4]/70 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b0f10]"
+              aria-label={`Open ${project.title} project details`}
+            >
+              {(() => {
               const projectImages =
                 Array.isArray(project.images) && project.images.length > 0
                   ? project.images
@@ -71,25 +77,32 @@ export default function ProjectsSection() {
               );
             })()}
 
-            <div className="p-6 md:p-7">
-              <h3 className="font-display text-xl text-white">{project.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
-                {project.description}
-              </p>
-              <div className="mt-4 flex flex-wrap gap-2">
-                {project.stack.map((item) => (
-                  <span key={item} className="tag-chip">
-                    {item}
-                  </span>
-                ))}
-              </div>
-              {project.results?.[0] && (
-                <p className="mt-4 flex items-start gap-2 text-sm leading-6 text-[#7FFFD4]/80">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C896]" />
-                  {project.results[0]}
+              <div className="p-6 md:p-7">
+                <h3 className="font-display text-xl text-white">{project.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-slate-300">
+                  {project.description}
                 </p>
-              )}
-            </div>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.stack.map((item) => (
+                    <span key={item} className="tag-chip">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                {project.results?.[0] && (
+                  <p className="mt-4 flex items-start gap-2 text-sm leading-6 text-[#7FFFD4]/80">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#00C896]" />
+                    {project.results[0]}
+                  </p>
+                )}
+                <p className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-[#7FFFD4]/72 transition group-hover:text-[#7FFFD4]">
+                  View project details
+                  <svg viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </p>
+              </div>
+            </Link>
           </Reveal>
         ))}
       </div>

@@ -1,9 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function ProjectImageGallery({ images, title }) {
   const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length < 2) return;
+
+    const neighborIndexes = [index - 1, index + 1].filter(
+      (i) => i >= 0 && i < images.length
+    );
+
+    neighborIndexes.forEach((i) => {
+      const preloaded = new window.Image();
+      preloaded.src = images[i];
+    });
+  }, [images, index]);
 
   const canPrev = index > 0;
   const canNext = index < images.length - 1;
@@ -13,9 +26,11 @@ export default function ProjectImageGallery({ images, title }) {
       <div className="flex items-center justify-center overflow-hidden rounded-lg bg-[#0d1214]">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          key={images[index]}
           src={images[index]}
           alt={`${title} image ${index + 1}`}
+          loading="eager"
+          decoding="async"
+          fetchPriority={index === 0 ? "high" : "auto"}
           className="gallery-image h-auto w-full object-contain"
           style={{ maxHeight: "440px" }}
         />

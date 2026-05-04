@@ -29,6 +29,13 @@
   box-shadow: 0 0 6px rgba(0, 200, 150, 0.6);
 }
 
+.project-detail-card:target {
+  border-color: rgba(127, 255, 212, 0.45);
+  box-shadow:
+    0 0 0 1px rgba(127, 255, 212, 0.28),
+    0 24px 64px rgba(0, 200, 150, 0.14);
+}
+
 /* Timeline toggle button */
 .tl-toggle {
   display: inline-flex;
