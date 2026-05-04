@@ -200,7 +200,7 @@ export const projects = [
   },
   {
     title: "Screw-Type Vacuum Pump Repair",
-    image: ["/projects/8/1.png"],
+    image: ["/projects/8/1.png", "/projects/8/2.png", "/projects/8/3.png"],
     description:
       "Repaired and overhauled a screw-type vacuum pump due to low suction performance.",
     task: "Repaired and overhauled a screw-type vacuum pump due to low suction performance.",
@@ -246,7 +246,7 @@ export const projects = [
   },
   {
     title: "Diaphragm Pump Repair",
-    image: ["/projects/10/1.png"],
+    image: ["/projects/10/1.png", "/projects/10/2.png"],
     description:
       "Repaired and restored a diaphragm pump due to leakage and reduced pumping efficiency.",
     task: "Repaired and restored a diaphragm pump due to leakage and reduced pumping efficiency.",
@@ -265,7 +265,14 @@ export const projects = [
   },
   {
     title: "Engineering Improvements and Maintenance Standardization",
-    image: ["/projects/11/1.png"],
+    image: [
+      "/projects/11/1.jpeg",
+      "/projects/11/2.jpeg",
+      "/projects/11/3.jpeg",
+      "/projects/11/4.jpeg",
+      "/projects/11/5.jpeg",
+      "/projects/11/6.jpeg"
+    ],
     description:
       "Supported equipment improvements, machine modifications, and maintenance standardization activities in a ceramic manufacturing plant.",
     task: "Supported equipment improvements, machine modifications, and maintenance standardization activities in a ceramic manufacturing plant.",
@@ -349,7 +356,7 @@ export const projects = [
   },
   {
     title: "Design and Development of a Delta Robot for Candy Sorting",
-    image: ["/projects/14/1.png", "/projects/14/2.png", "/projects/14/3.png"],
+    image: ["/projects/14/1.png", "/projects/14/2.png", "/projects/14/3.jpeg"],
     description:
       "Designed and developed a delta robot to identify candy colors and sort them using image processing.",
     task: "Designed and developed a delta robot to identify candy colors and sort them using image processing.",
