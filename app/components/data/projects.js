@@ -58,6 +58,7 @@ export const projects = [
       "/projects/3/4.png",
       "/projects/3/5.png",
       "/projects/3/6.png",
+      "/projects/3/7.jpeg",
     ],
     description:
       "Designed, installed, and commissioned a center tube rotary dryer system to improve production capacity and energy performance.",
